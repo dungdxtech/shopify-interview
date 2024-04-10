@@ -1,0 +1,141 @@
+.team-info {
+	padding: 30px 0;
+	font-family: 'Montserrat';
+}
+
+.team-info__label {
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: 0.2px;
+	text-align: left;
+	color: rgba(150, 187, 124, 1);
+}
+
+.team-info__title {
+	font-size: 23px;
+	font-weight: 720;
+	line-height: 32px;
+	letter-spacing: 0.1px;
+	text-align: left;
+	margin-top: 11px;
+}
+
+.team-info__description > p {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	font-weight: 550;
+	line-height: 20px;
+	letter-spacing: 0.1px;
+	text-align: left;
+	color: #737373;
+	margin: 9px 0 50px 0;
+}
+
+.team-info__list {
+	gap: 30px;
+}
+
+.team-info__card {
+	box-shadow: 0px 13px 19px 0px rgba(0, 0, 0, 0.07);
+	width: 239px;
+	height: 375px;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.team-info-card__image {
+	height: 231px;
+	background-color: cadetblue;
+	margin-bottom: 16px;
+}
+
+.team-info-card__image > img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.team-info-card__info {
+	padding: 12px 0 0 0;
+}
+
+.team-info-card__info__name {
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: 0.3px;
+	text-align: center;
+}
+
+.team-info-card__info__profession {
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.25px;
+	text-align: center;
+	margin-top: 5px;
+}
+
+.team-info-card__contact {
+	display: flex;
+	gap: 17px;
+	justify-content: center;
+	margin-top: 5px;
+}
+
+.team-info-card__contact > a {
+	height: 27px;
+	width: 27px;
+	color: rgba(150, 187, 124, 1);
+	cursor: pointer;
+}
+
+.team-info-card__contact > div:hover {
+	color: rgb(110 177 62);
+}
+
+@media screen and (max-width: 768px) {
+
+	.team-info__list {
+		gap: 20px;
+	}
+
+	.team-info__card {
+		width: 200px;
+		height: 315px;
+	}
+
+	.team-info-card__image {
+		height: 175px;
+	}
+
+	.team-info__description > p {
+		margin: 9px 0 30px 0
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.team-info {
+		padding: 20px 0;
+	}
+	
+	.team-info__label {
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 20px;
+		letter-spacing: 0.1px;
+	}
+	
+	.team-info__title {
+		font-size: 18px;
+		line-height: 25px;
+	}
+	
+	.team-info__description > p {
+		margin: 9px 0 30px 0;
+	}
+	
+	.team-info__list {
+		justify-content: center;
+	}
+	
+}

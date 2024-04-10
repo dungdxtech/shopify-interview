@@ -1,0 +1,202 @@
+{{ 'section-team-info.css' | asset_url | stylesheet_tag }}
+
+<div class="team-info">
+  <div
+    class="page-width section-{{ section.id }}-padding"
+  >
+    <div class="team-info__top">
+      {%- unless section.settings.section_label == blank -%}
+        <div class="team-info__label">
+          {{ section.settings.section_label }}
+        </div>
+      {%- endunless -%}
+
+      {%- unless section.settings.title == blank -%}
+        <div class="team-info__title">
+          {{ section.settings.title }}
+        </div>
+      {%- endunless -%}
+
+      {%- unless section.settings.section_description == blank -%}
+        <div class="team-info__description">
+          {{ section.settings.section_description }}
+        </div>
+      {%- endunless -%}
+    </div>
+
+    {% assign blocks = 'orange,apple,peach,123,343' | split: ',' %}
+
+    <div>
+      <ul
+        class="team-info__list grid"
+        id="team-cards-{{ section.id }}"
+        role="list"
+      >
+        {%- for block in section.blocks -%}
+          {%- assign empty_column = '' -%}
+          {%- if block.settings.image == blank
+            and block.settings.name == blank
+            and block.settings.profession == blank
+            and block.settings.facebook_link == blank
+            and block.settings.instagram_link == blank
+            and block.settings.twitter_link == blank
+          -%}
+            {%- assign empty_column = ' team-info-list__item--empty' -%}
+          {%- endif -%}
+
+          <li
+            id="Slide-{{ section.id }}-{{ forloop.index }}"
+            class=""
+            {{ block.shopify_attributes }}
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{ forloop.index }};"
+            {% endif %}
+          >
+            <div class="team-info__card">
+              <div class="team-info-card__image">
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 3200
+                    | image_tag:
+                      widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                      class: 'multicolumn-card__image'
+                  }}
+                {% endif %}
+              </div>
+
+              <div class="team-info-card__info">
+                  <div class="team-info-card__info__name">Julian Jameson{{ block.settings.title }}</div>
+                  <div class="team-info-card__info__profession">Profession{{ block.settings.text }}</div>
+
+              </div>
+
+              <div class="team-info-card__contact">
+                <a
+                  {% if block.settings.facebook_link == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ block.settings.facebook_link }}"
+                  {% endif %}
+
+                >
+                  {%- render 'icon-facebook' -%}
+                </a>
+                <a
+                  {% if block.settings.instagram_link == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ block.settings.instagram_link }}"
+                  {% endif %}
+                >
+                  {%- render 'icon-instagram' -%}
+                </a>
+                <a
+                  {% if block.settings.twitter_link == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ block.settings.twitter_link }}"
+                  {% endif %}
+                >
+                  {%- render 'icon-twitter' -%}
+                </a>
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Team Info",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "section_label",
+      "default": "Team",
+      "label": "Section Label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Get Quality Education",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "section_description",
+      "default": "<p>Problems trying to resolve the conflict between <br> the two major realms of Classical physics: Newtonian mechanics </p>",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Layout"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "default": "Julian Jameson",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "profession",
+          "default": "Profession",
+          "label": "Profession"
+        },
+        {
+          "type": "url",
+          "id": "facebook_link",
+          "label": "Facebook Link"
+        },
+        {
+          "type": "url",
+          "id": "instagram_link",
+          "label": "Instagram Link"
+        },
+        {
+          "type": "url",
+          "id": "twitter_link",
+          "label": "Twitter Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Team Info",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
