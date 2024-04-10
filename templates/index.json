@@ -84,6 +84,7 @@
         "column_YXKjFX": {
           "type": "column",
           "settings": {
+            "image": "shopify:\/\/shop_images\/image_2.jpg",
             "name": "Julian Jameson",
             "profession": "Profession",
             "facebook_link": "",
@@ -94,6 +95,18 @@
         "column_Pkggbk": {
           "type": "column",
           "settings": {
+            "image": "shopify:\/\/shop_images\/image_4.jpg",
+            "name": "Julian Jameson",
+            "profession": "Profession",
+            "facebook_link": "",
+            "instagram_link": "",
+            "twitter_link": ""
+          }
+        },
+        "column_idQqYt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_5.jpg",
             "name": "Julian Jameson",
             "profession": "Profession",
             "facebook_link": "",
@@ -105,7 +118,8 @@
       "block_order": [
         "column_zxwQFE",
         "column_YXKjFX",
-        "column_Pkggbk"
+        "column_Pkggbk",
+        "column_idQqYt"
       ],
       "settings": {
         "section_label": "Team",
