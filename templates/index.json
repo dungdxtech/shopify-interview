@@ -66,10 +66,57 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "team_info_Yn7VNB": {
+      "type": "team-info",
+      "blocks": {
+        "column_zxwQFE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_1.jpg",
+            "name": "Julian Jameson",
+            "profession": "Profession",
+            "facebook_link": "https:\/\/www.facebook.com\/",
+            "instagram_link": "",
+            "twitter_link": ""
+          }
+        },
+        "column_YXKjFX": {
+          "type": "column",
+          "settings": {
+            "name": "Julian Jameson",
+            "profession": "Profession",
+            "facebook_link": "",
+            "instagram_link": "",
+            "twitter_link": ""
+          }
+        },
+        "column_Pkggbk": {
+          "type": "column",
+          "settings": {
+            "name": "Julian Jameson",
+            "profession": "Profession",
+            "facebook_link": "",
+            "instagram_link": "",
+            "twitter_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_zxwQFE",
+        "column_YXKjFX",
+        "column_Pkggbk"
+      ],
+      "settings": {
+        "section_label": "Team",
+        "title": "Get Quality Education",
+        "section_description": "<p>Problems trying to resolve the conflict between <br\/> the two major realms of Classical physics: Newtonian mechanics <\/p>"
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "team_info_Yn7VNB"
   ]
 }
