@@ -22,7 +22,6 @@
 }
 
 .team-info__description > p {
-	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
 	font-weight: 550;
 	line-height: 20px;
@@ -89,7 +88,7 @@
 	cursor: pointer;
 }
 
-.team-info-card__contact > div:hover {
+.team-info-card__contact > a:hover {
 	color: rgb(110 177 62);
 }
 

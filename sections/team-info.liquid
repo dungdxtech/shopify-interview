@@ -24,8 +24,6 @@
       {%- endunless -%}
     </div>
 
-    {% assign blocks = 'orange,apple,peach,123,343' | split: ',' %}
-
     <div>
       <ul
         class="team-info__list grid"
@@ -33,17 +31,6 @@
         role="list"
       >
         {%- for block in section.blocks -%}
-          {%- assign empty_column = '' -%}
-          {%- if block.settings.image == blank
-            and block.settings.name == blank
-            and block.settings.profession == blank
-            and block.settings.facebook_link == blank
-            and block.settings.instagram_link == blank
-            and block.settings.twitter_link == blank
-          -%}
-            {%- assign empty_column = ' team-info-list__item--empty' -%}
-          {%- endif -%}
-
           <li
             id="Slide-{{ section.id }}-{{ forloop.index }}"
             class=""
@@ -60,16 +47,19 @@
                     block.settings.image
                     | image_url: width: 3200
                     | image_tag:
-                      widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
-                      class: 'multicolumn-card__image'
+                    widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                    class: 'card__image'
                   }}
                 {% endif %}
               </div>
 
               <div class="team-info-card__info">
-                  <div class="team-info-card__info__name">Julian Jameson{{ block.settings.title }}</div>
-                  <div class="team-info-card__info__profession">Profession{{ block.settings.text }}</div>
-
+                {% if block.settings.name %}
+                  <div class="team-info-card__info__name">{{ block.settings.name }}</div>
+                {% endif %}
+                {% if block.settings.profession %}
+                  <div class="team-info-card__info__profession">{{ block.settings.profession }}</div>
+                {% endif %}
               </div>
 
               <div class="team-info-card__contact">
@@ -78,8 +68,8 @@
                     role="link" aria-disabled="true"
                   {% else %}
                     href="{{ block.settings.facebook_link }}"
+                    target="_blank"
                   {% endif %}
-
                 >
                   {%- render 'icon-facebook' -%}
                 </a>
@@ -88,6 +78,7 @@
                     role="link" aria-disabled="true"
                   {% else %}
                     href="{{ block.settings.instagram_link }}"
+                    target="_blank"
                   {% endif %}
                 >
                   {%- render 'icon-instagram' -%}
@@ -97,6 +88,7 @@
                     role="link" aria-disabled="true"
                   {% else %}
                     href="{{ block.settings.twitter_link }}"
+                    target="_blank"
                   {% endif %}
                 >
                   {%- render 'icon-twitter' -%}
